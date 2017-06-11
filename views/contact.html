@@ -21,6 +21,6 @@
     <div ng-show="contactForm.message.$touched && contactForm.message.$invalid">
       <small style="color:red;display:block;text-align:center">Enter a valid message</small>
     </div>
-    <input type="submit" value="send"/>
+    <input type="submit" value="send" ng-disabled="contactForm.$invalid"/>
   </form>
 </div>
