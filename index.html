@@ -13,9 +13,13 @@ anguar will control the case-->
       <p>{{message}} and {{greet}}</p>
       <input type="text" ng-model="favFood" placeholder="enter your fav food"/>
       <p>{{favFood}}</p>
+        <input type="number" ng-model="num1" placeholder="enter Number 1"/>
+          <input type="number" ng-model="num2" placeholder="enter Numer 2"/>
+      <p>{{num1}}*{{num2}} = {{num1*num2}}</p>
       <input type="text" ng-model="search"/>
       <ul>
-        <li ng-repeat="ninja in ninjas | orderBy: 'name' | filter: search">{{ninja.name}}</li>
+        <li ng-repeat="ninja in ninjas | orderBy: 'name' | filter: search">{{ninja.name | uppercase}} - {{ninja.rate | currency}}</li>
+        <!-- To revesre the order -name -->
       </ul>
     </div>
   </body>
