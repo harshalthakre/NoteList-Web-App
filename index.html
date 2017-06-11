@@ -15,12 +15,31 @@ anguar will control the case-->
     <!-- model means data right??? in MVC we talked about it-->
     <div class="content">
       <div ng-controller="NinjaController">
-      
+        <button ng-click="order= 'name'">Order by Name</button><!-- order is the variable which gets the value 'name'-->
+        <!-- order is variable hence no ''-->
+        <button ng-click="order= 'belt'">Order by Belt</button>
         <input type="text" ng-model="search"/>
         <ul>
-          <li ng-repeat="ninja in ninjas | orderBy: 'name' | filter: search">{{ninja.name | uppercase}} - {{ninja.rate | currency}}</li>
+          <!-- ng-show for negation use "!" -->
+          <!-- ng-hid reverse for shwo -->
+
+          <!-- order is variable now henceno '' -->
+          <!-- orderBy which propert we write the property name here hence just belt or just name we
+          are not defining or introducing particular ninja hence not ninja.name-->
+          <li ng-repeat="ninja in ninjas | orderBy: order | filter: search" ng-show="ninja.available">
+            <h3>{{ninja.name}} - {{ninja.rate | currency: '*'}}</h3>
+            <div class="remove" ng-click="removeNinja(ninja)">x</div>
+            <span class="belt" style="background:{{ninja.belt}}">{{ninja.belt}} belt</span>
+          </li>
           <!-- To revesre the order -name -->
         </ul>
+
+        <form ng-submit="addNinja()">
+            <input type="text" placeholder="name" ng-model="newninja.name"/>
+            <input type="text" placeholder="belt" ng-model="newninja.belt"/>
+            <input type="text" placeholder="rate" ng-model="newninja.rate"/>
+            <input type="submit" value="Add new Ninja"/>
+        </form>
       </div>
     </div>
 
