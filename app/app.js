@@ -5,7 +5,8 @@ var myNinjaApp= angular.module('myNinjaApp',['ngRoute']); // 'myNinjaApp' and wh
 myNinjaApp.config(['$routeProvider',function($routeProvider){
   $routeProvider.
   when('/home',{
-    templateUrl:'views/home.html'
+    templateUrl:'views/home.html',
+    controller:'NinjaController' // in real time u write diff controller for each specifically
   })
   .when('/directory',{
     templateUrl:'views/directory.html',
@@ -18,10 +19,29 @@ myNinjaApp.config(['$routeProvider',function($routeProvider){
 
 // as ur application run
 
-
+//when u want to create your own directory
+//- replaced by camecCase
+myNinjaApp.directive('randomNinja',[function(){
+  return {
+    restrict : 'EA', // E elements(tag) A(Attributes)
+    //directive has its own scope
+    scope:{
+      ninjas:"=", //binding
+      title: "="
+    },
+    templateUrl:'views/random.html',
+    transclude:true,
+    replace:true,
+    controller:function($scope){
+      $scope.random=Math.floor(Math.random()*3);
+    }
+  };
+}])
 
 //['$scope'] to protect it from minification version of angualr js
 myNinjaApp.controller('NinjaController',['$scope','$http','$sce',function($scope,$http,$sce){
+
+
 
   $scope.removeNinja=function(ninja){
     var removedNinja= $scope.ninjas.indexOf(ninja);

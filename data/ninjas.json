@@ -8,8 +8,8 @@
 	"name": "Shubham",
 	"belt": "black",
 	"rate": 20,
-	"available": false,
-	"thumb": "content/img/avatar2.png"
+	"available": true,
+	"thumb": "content/img/avatar4.png"
 }, {
 	"name": "Harshal",
 	"belt": "yellow",
