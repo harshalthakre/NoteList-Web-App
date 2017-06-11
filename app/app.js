@@ -1,4 +1,4 @@
-var myNinjaApp= angular.module('myNinjaApp',['ngRoute']); // 'myNinjaApp' and whatever ng-app name will be both should be same
+var myNinjaApp= angular.module('myNinjaApp',['ngRoute','ngAnimate']); // 'myNinjaApp' and whatever ng-app name will be both should be same
 
 
 //before your application run it came here to see where to go
@@ -48,6 +48,10 @@ myNinjaApp.controller('NinjaController',['$scope','$http','$sce',function($scope
   $scope.removeNinja=function(ninja){
     var removedNinja= $scope.ninjas.indexOf(ninja);
     $scope.ninjas.splice(removedNinja,1);
+  }
+
+  $scope.removeAll=function(){
+    $scope.ninjas=[];
   }
 
   $scope.addNinja=function(){
