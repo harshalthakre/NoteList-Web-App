@@ -27,6 +27,10 @@ anguar will control the case-->
           <!-- orderBy which propert we write the property name here hence just belt or just name we
           are not defining or introducing particular ninja hence not ninja.name-->
           <li ng-repeat="ninja in ninjas | orderBy: order | filter: search" ng-show="ninja.available">
+            <!-- <img src="{{ninja.thumb}}" style="margin:-12px 10px 0 0;float:left;width:50px"/>
+            error is given in screenshot console
+            -->
+            <img ng-src="{{ninja.thumb}}" style="margin:-12px 10px 0 0;float:left;width:50px"/>
             <h3>{{ninja.name}} - {{ninja.rate | currency: '*'}}</h3>
             <div class="remove" ng-click="removeNinja(ninja)">x</div>
             <span class="belt" style="background:{{ninja.belt}}">{{ninja.belt}} belt</span>
@@ -35,6 +39,7 @@ anguar will control the case-->
         </ul>
 
         <form ng-submit="addNinja()">
+          <!-- <input type="text" placeholder="name" ng-model="nayaname"/>-->
             <input type="text" placeholder="name" ng-model="newninja.name"/>
             <input type="text" placeholder="belt" ng-model="newninja.belt"/>
             <input type="text" placeholder="rate" ng-model="newninja.rate"/>

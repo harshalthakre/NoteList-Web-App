@@ -23,11 +23,17 @@ myNinjaApp.controller('NinjaController',['$scope',function($scope){
 
   $scope.addNinja=function(){
     $scope.ninjas.push({
+      //name:$scope.nayaname
       name:$scope.newninja.name,
       belt:$scope.newninja.belt,
       rate:parseInt($scope.newninja.rate),
-      available:true
+      available:true,
+      thumb:"content/img/avatar3.png"
     });
+
+    $scope.newninja.name="";
+    $scope.newninja.belt="";
+    $scope.newninja.rate="";
   };
 $scope.message="hello buddies";
 $scope.greet="kya mamu";
@@ -40,18 +46,22 @@ $scope.ninjas=[
     belt: "green",
     rate: 80,
     available:true,
+    thumb:"content/img/avatar3.png",
+
   },
   {
     name:"Shubham",
     belt:"black",
     rate: 20,
     available:false,
+    thumb:"content/img/avatar2.png",
   },
   {
     name:"Harshal",
     belt:"yellow",
     rate: 100,
     available:true,
+    thumb:"content/img/avatar2.png",
   }
 
   ];
