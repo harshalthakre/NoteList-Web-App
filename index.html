@@ -8,19 +8,26 @@ anguar will control the case-->
     <script src="app\app.js"></script>
   </head>
   <body>
-<!-- model means data right??? in MVC we talked about it-->
-    <div ng-controller="NinjaController">
-      <p>{{message}} and {{greet}}</p>
-      <input type="text" ng-model="favFood" placeholder="enter your fav food"/>
-      <p>{{favFood}}</p>
-        <input type="number" ng-model="num1" placeholder="enter Number 1"/>
-          <input type="number" ng-model="num2" placeholder="enter Numer 2"/>
-      <p>{{num1}}*{{num2}} = {{num1*num2}}</p>
-      <input type="text" ng-model="search"/>
-      <ul>
-        <li ng-repeat="ninja in ninjas | orderBy: 'name' | filter: search">{{ninja.name | uppercase}} - {{ninja.rate | currency}}</li>
-        <!-- To revesre the order -name -->
-      </ul>
+    <!-- ng include used to import html from another file-->
+    <!-- Tag way you can see by inspecting on nav the tage suuround
+    will be ng-include not conventional na u dont want to show <ng-include src="'header.html'"></ng-include>-->
+    <header ng-include="'header.html'"></header>
+    <!-- model means data right??? in MVC we talked about it-->
+    <div class="content">
+      <div ng-controller="NinjaController">
+        <p>{{message}} and {{greet}}</p>
+        <input type="text" ng-model="favFood" placeholder="enter your fav food"/>
+        <p>{{favFood}}</p>
+          <input type="number" ng-model="num1" placeholder="enter Number 1"/>
+            <input type="number" ng-model="num2" placeholder="enter Numer 2"/>
+        <p>{{num1}}*{{num2}} = {{num1*num2}}</p>
+        <input type="text" ng-model="search"/>
+        <ul>
+          <li ng-repeat="ninja in ninjas | orderBy: 'name' | filter: search">{{ninja.name | uppercase}} - {{ninja.rate | currency}}</li>
+          <!-- To revesre the order -name -->
+        </ul>
+      </div>
     </div>
+
   </body>
 </html>
