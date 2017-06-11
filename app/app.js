@@ -7,6 +7,8 @@ myNinjaApp.config(['$routeProvider',function($routeProvider){
   when('/home',{
     templateUrl:'views/home.html',
     controller:'NinjaController' // in real time u write diff controller for each specifically
+  }).when('/contact',{
+    templateUrl:'views/contact.html'
   })
   .when('/directory',{
     templateUrl:'views/directory.html',

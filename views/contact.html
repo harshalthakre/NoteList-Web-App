@@ -1,0 +1,26 @@
+<div class="content">
+  <!-- {{contact}}  if you want to see whats going with Object-->
+  <form name="contactForm" novalidate><!-- no validate is to tell html5 that u dont need to validate we are ther-->
+    <input type="text" placeholder="name" name="name" ng-model="contact.name" ng-required="true"/> <!-- then send contact obj to database-->
+
+      <!--<span> $pristine - {{contactForm.name.$pristine}},
+      $dirty - {{contactForm.name.$dirty}},
+      $untouched - {{contactForm.name.$untouched}},
+      $touched - {{contactForm.name.$touched}},
+      $invalid - {{contactForm.name.$invalid}},
+      $valid - {{contactForm.name.$valid}},</span>-->
+      <div ng-show="contactForm.name.$touched && contactForm.name.$invalid">
+        <small style="color:red;display:block;text-align:center">Enter a valid name</small>
+      </div>
+
+    <input type="email" placeholder="email" name="email" ng-model="contact.email" ng-required="true"/>
+    <div ng-show="contactForm.email.$touched && contactForm.email.$invalid">
+      <small style="color:red;display:block;text-align:center">Enter a valid email</small>
+    </div>
+    <textarea placeholder="Your message" name="message" ng-model="contact.message" ng-required="true"></textarea>
+    <div ng-show="contactForm.message.$touched && contactForm.message.$invalid">
+      <small style="color:red;display:block;text-align:center">Enter a valid message</small>
+    </div>
+    <input type="submit" value="send"/>
+  </form>
+</div>
