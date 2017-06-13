@@ -2,13 +2,22 @@ var myNinjaApp= angular.module('myNinjaApp',['ngRoute','ngAnimate']); // 'myNinj
 
 
 //before your application run it came here to see where to go
-myNinjaApp.config(['$routeProvider',function($routeProvider){
+myNinjaApp.config(['$routeProvider','$locationProvider',function($routeProvider,$locationProvider){
+
+//$locationProvider.html5Mode(true);
   $routeProvider.
-  when('/home',{
+  when('/',{
+    templateUrl:'views/home.html',
+    controller:'NinjaController' // in real time u write diff controller for each specifically
+  }).when('/home',{
     templateUrl:'views/home.html',
     controller:'NinjaController' // in real time u write diff controller for each specifically
   }).when('/contact',{
-    templateUrl:'views/contact.html'
+    templateUrl:'views/contact.html',
+    controller:'ContactController'
+  }).when('/contact-success',{
+    templateUrl:'views/contact-success.html',
+    controller:'ContactController'
   })
   .when('/directory',{
     templateUrl:'views/directory.html',
@@ -87,15 +96,19 @@ $scope.greet="kya mamu";
 
   $http.get('data/ninjas.json').then(successCallback, errorCallback);
 
+
   function successCallback(response){
       //success code
       // refer documentation for response object
         $scope.ninjas=response.data;
-        console.log($scope.ninjas);
+        console.log('heyy')
+        console.log($scope.ninjas[0]);
   }
+
   function errorCallback(error){
       //error code
   }
+  //console.log($scope.ninjas[0]);
 /*  $http.get('https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyCIswYVmH2GII181tNbYxTsOM7W57sPjcY').then(successCallback1, errorCallback1);
 
   function successCallback1(success){
@@ -113,5 +126,14 @@ $scope.greet="kya mamu";
   }
 */
 
+}]);
+
+myNinjaApp.controller('ContactController',['$scope','$location',function($scope,$location){
+
+$scope.sucContact=[];
+  $scope.sendMessage=function(contact){
+    console.log(contact);
+    $location.path('contact-success');
+  }
 
 }]);

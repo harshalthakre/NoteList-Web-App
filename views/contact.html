@@ -1,6 +1,6 @@
 <div class="content">
   <!-- {{contact}}  if you want to see whats going with Object-->
-  <form name="contactForm" novalidate><!-- no validate is to tell html5 that u dont need to validate we are ther-->
+  <form name="contactForm" ng-submit="sendMessage(contact)" novalidate><!-- no validate is to tell html5 that u dont need to validate we are ther-->
     <input type="text" placeholder="name" name="name" ng-model="contact.name" ng-required="true"/> <!-- then send contact obj to database-->
 
       <!--<span> $pristine - {{contactForm.name.$pristine}},
